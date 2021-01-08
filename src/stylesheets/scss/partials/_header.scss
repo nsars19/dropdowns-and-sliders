@@ -46,7 +46,7 @@ header {
   }
   .item-wrapper {
     max-height: 300px;
-    transition: max-height 0.2s ease;
+    transition: max-height 0.1s ease;
   }
   .dropdown-item {
     height: 100%;
@@ -83,17 +83,17 @@ header {
 .display-off {
   .item-wrapper {
     max-height: 0;
-    transition: max-height 0.2s ease;
+    transition: max-height 0.1s ease;
 
     & > * {
       padding: 0;
       border: none;
       box-shadow: none;
       opacity: 0;
-      transition-property: padding, opacity, transform;
-      transition-duration: 0.2s, 0.05s, 0.2s;
+      font-size: 0px;
+      transition-property: padding, opacity, font-size;
+      transition-duration: 0.1s;
       transition-timing-function: ease;
-      transform: scale(0.25);
     }
   }
 }
