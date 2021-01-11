@@ -1,4 +1,5 @@
 @use './partials/header';
+@use './partials/mobileNav';
 
 *,
 ::before,
@@ -7,4 +8,9 @@
   padding: 0;
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.d-none {
+  display: none;
 }
