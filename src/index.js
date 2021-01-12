@@ -64,9 +64,9 @@ const app = (() => {
     }
   }
 
-  function setActiveIcon(current, newChoice) {
+  function changeActiveIcon(current, newChoice) {
     if ( newChoice > 9 || newChoice < 0) return
-    
+
     const currentChoice = elem(".slide-control-icons").children[current]
     const selected = elem(".slide-control-icons").children[newChoice]
     
@@ -75,11 +75,11 @@ const app = (() => {
   }
 
   elem(".shift-right").addEventListener('click', () => {
-    setActiveIcon(focus, focus + 1)
+    changeActiveIcon(focus, focus + 1)
     nextImage()
   });
   elem(".shift-left").addEventListener('click', () => {
-    setActiveIcon(focus, focus - 1)
+    changeActiveIcon(focus, focus - 1)
     previousImage()
   });
 
@@ -87,7 +87,7 @@ const app = (() => {
     icon.addEventListener('click', () => {
       if (focus === idx) return
       
-      setActiveIcon(focus, idx)
+      changeActiveIcon(focus, idx)
 
       focus <= idx 
       ? times(idx - focus, nextImage)
