@@ -84,7 +84,6 @@ const app = (() => {
       focus <= idx 
       ? times(idx - focus, nextImage)
       : times(focus - idx, previousImage)
-
     })
   })
 })();
