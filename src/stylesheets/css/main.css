@@ -183,6 +183,10 @@ header .navitem .menu-item {
   grid-auto-flow: column;
   overflow: hidden;
 }
+.slider .slides img {
+  max-width: 100%;
+  max-height: 100%;
+}
 .slider .slide:not(.slide:first-child) {
   display: none;
   place-items: center;
