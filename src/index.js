@@ -74,8 +74,14 @@ const app = (() => {
     selected.firstElementChild.style.background = "#222"
   }
 
-  elem(".shift-right").addEventListener('click', nextImage);
-  elem(".shift-left").addEventListener('click', previousImage);
+  elem(".shift-right").addEventListener('click', () => {
+    setActiveIcon(focus, focus + 1)
+    nextImage()
+  });
+  elem(".shift-left").addEventListener('click', () => {
+    setActiveIcon(focus, focus - 1)
+    previousImage()
+  });
 
   [...$(".icon")].forEach((icon, idx) => {
     icon.addEventListener('click', () => {
