@@ -65,6 +65,8 @@ const app = (() => {
   }
 
   function setActiveIcon(current, newChoice) {
+    if ( newChoice > 9 || newChoice < 0) return
+    
     const currentChoice = elem(".slide-control-icons").children[current]
     const selected = elem(".slide-control-icons").children[newChoice]
     
