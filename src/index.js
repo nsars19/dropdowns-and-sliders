@@ -25,12 +25,6 @@ const app = (() => {
     children.forEach((child) => addListenerToChild(child));
   });
 
-  [...$(".slide")].forEach((slide, idx) => {
-    const {slideInfo} = {idx, slide}
-    
-    // console.log(slideInfo)
-  })
-
   function nextImage() {
     if (focus == 9) return 
     
@@ -41,8 +35,11 @@ const app = (() => {
     
     // remove current slide from display
     slides.children[focus].style.display = "none"
+
+    // remove current focused value
     focus += 1
-    // add current slide to display
+
+    // add new current slide to display
     slides.children[focus].style.display = "grid"
   }
 
@@ -50,13 +47,44 @@ const app = (() => {
     if (focus == 0) return
 
     const slides = elem('.slides')
+
     // remove current slide from display
     slides.children[focus].style.display = "none"
+    
+    // change current focused value
     focus -= 1
-    // add current slide to display
+
+    // add new current slide to display
     slides.children[focus].style.display = "grid"
   }
 
-  elem(".shift-right").addEventListener('click', nextImage)
-  elem(".shift-left").addEventListener('click', previousImage)
+  function times(x, callback) {
+    for (let i = 0; i < x; i++) {
+      callback()
+    }
+  }
+
+  function setActiveIcon(current, newChoice) {
+    const currentChoice = elem(".slide-control-icons").children[current]
+    const selected = elem(".slide-control-icons").children[newChoice]
+    
+    currentChoice.firstElementChild.style.background = "none"
+    selected.firstElementChild.style.background = "#222"
+  }
+
+  elem(".shift-right").addEventListener('click', nextImage);
+  elem(".shift-left").addEventListener('click', previousImage);
+
+  [...$(".icon")].forEach((icon, idx) => {
+    icon.addEventListener('click', () => {
+      if (focus === idx) return
+      
+      setActiveIcon(focus, idx)
+
+      focus <= idx 
+      ? times(idx - focus, nextImage)
+      : times(focus - idx, previousImage)
+
+    })
+  })
 })();
